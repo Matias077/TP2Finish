@@ -20,7 +20,7 @@ public class ProductoController {
     public ResponseEntity<String> registryProduct(@RequestBody Producto producto) {
         try {
             productoService.registrarProducto(producto);
-            return ResponseEntity.status(HttpStatus.CREATED).body("Producto registrado correctamente");
+            return ResponseEntity.status(HttpStatus.CREATED).body("PRODUCTO CARGADO CORRECTAMENTE");
         } catch (ProductoException e) {
             return ResponseEntity.status(e.getStatus()).body(e.getMessage());
         }
@@ -31,7 +31,7 @@ public class ProductoController {
         try {
             String codigo = producto.getCodigo(); // Obtener el código del producto del cuerpo de la solicitud
             productoService.actualizarProducto(codigo, producto);
-            return ResponseEntity.ok("Producto actualizado correctamente.");
+            return ResponseEntity.ok("EL PRODUCTO FUE ACTUALIZADO CORRECTAMENTE.");
         } catch (ProductoException e) {
             return ResponseEntity.status(e.getStatus()).body(e.getMessage());
         }
@@ -41,7 +41,7 @@ public class ProductoController {
     public ResponseEntity<String> deleteProduct(@RequestBody Producto producto) {
         try {
             productoService.eliminarProducto(producto.getCodigo());
-            return ResponseEntity.status(HttpStatus.OK).body("Producto eliminado correctamente");
+            return ResponseEntity.status(HttpStatus.OK).body("EL PRODUCTO FUE ELIMINADO CORRECTAMENTE");
         } catch (ProductoException e) {
             return ResponseEntity.status(e.getStatus()).body(e.getMessage());
         }

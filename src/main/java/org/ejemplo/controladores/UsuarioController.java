@@ -25,7 +25,7 @@ public class UsuarioController {
     public ResponseEntity<String> registryUser(@RequestBody Usuario usuario) {
         try {
             usersService.registrarUsuario(usuario);
-            return ResponseEntity.status(HttpStatus.CREATED).body("Usuario registrado correctamente");
+            return ResponseEntity.status(HttpStatus.CREATED).body("USUARIO CORRECTAMENTE");
         } catch (UserRegistrationException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
